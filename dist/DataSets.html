@@ -1,0 +1,156 @@
+<html>
+            <head>
+<link rel="stylesheet" href="st.css">
+</head>
+<body><h1>DataSets</h1>
+<p>aktuelle können folgende JSON-Endpunkte verwendet werden</p>
+<ul>
+<li><strong>JSON-Url/JSON-Api</strong> </li>
+<li><strong>GraphQl</strong></li>
+<li><strong>Google Sheet</strong></li>
+</ul>
+<h2>JSON-Url/JSON-Api</h2>
+<h3>Request Parameters</h3>
+<ul>
+<li><strong>Url</strong> (required): URL zu Ihrer Datenquelle</li>
+</ul>
+<pre><code>https://dummyjson.com/recipes
+</code></pre><ul>
+<li><strong>Request-Header</strong> (optional): Hier können Sie zusätzlichen Informationen definieren.</li>
+</ul>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;content-type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;application/json&quot;</span><span class="hljs-punctuation">}</span>
+</code></pre><h2>GraphQl</h2>
+<h3>Request Parameters</h3>
+<ul>
+<li><strong>Url</strong> (required): URL zu Ihrer Datenquelle</li>
+<li><strong>Query</strong> (required): Query Definition</li>
+</ul>
+<pre><code class="hljs language-graphql"><span class="hljs-keyword">query</span> <span class="hljs-punctuation">(</span>
+  <span class="hljs-variable">$id</span>: ID<span class="hljs-punctuation">!</span>
+<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  photo<span class="hljs-punctuation">(</span><span class="hljs-symbol">id</span><span class="hljs-punctuation">:</span> <span class="hljs-variable">$id</span>) <span class="hljs-punctuation">{</span>
+    album <span class="hljs-punctuation">{</span>
+      id
+      title
+      user <span class="hljs-punctuation">{</span> id <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre><ul>
+<li><strong>Variables</strong> (optional): Query Variables</li>
+</ul>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">}</span>
+</code></pre><ul>
+<li><strong>Request-Header</strong> (optional): Hier können Sie zusätzlichen Informationen definieren.</li>
+</ul>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;content-type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;application/json&quot;</span><span class="hljs-punctuation">}</span>
+</code></pre><h2>Google Sheet</h2>
+<ul>
+<li><strong>SpreadSheet ID</strong> (required): URL zu Ihrer Datenquelle</li>
+<li><strong>Sheet Title</strong> (required): Query Definition</li>
+<li><strong>Google API-Key</strong> (required): Query Variables</li>
+</ul>
+<h1>JSON Data</h1>
+<p>Alle Daten Endpunkte müssen ein JSON-Object liefern!</p>
+<h2>Beispiel ROOT is Object - (<a href="https://dummyjson.com/recipes">https://dummyjson.com/recipes</a>)</h2>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>  <span class="hljs-attr">&quot;recipes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Classic Margherita Pizza&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;ingredients&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;Pizza dough&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Tomato sauce&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Fresh mozzarella cheese&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Fresh basil leaves&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Olive oil&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Salt and pepper to taste&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;instructions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;Preheat the oven to 475°F (245°C).&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Roll out the pizza dough and spread tomato sauce evenly.&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Top with slices of fresh mozzarella and fresh basil leaves.&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Drizzle with olive oil and season with salt and pepper.&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Bake in the preheated oven for 12-15 minutes or until the crust is golden brown.&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Slice and serve hot.&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prepTimeMinutes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;cookTimeMinutes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;servings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;difficulty&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Easy&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;cuisine&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Italian&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;caloriesPerServing&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">300</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;tags&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;Pizza&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;Italian&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;userId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">166</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;image&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://cdn.dummyjson.com/recipe-images/1.webp&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;rating&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.6</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;reviewCount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">98</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;mealType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;Dinner&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">50</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;skip&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;limit&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">30</span>
+<span class="hljs-punctuation">}</span>
+</code></pre><p>Intern verwendete Schemata</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;recipes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;ingredients&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;string&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;instructions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;string&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prepTimeMinutes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;cookTimeMinutes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;servings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;difficulty&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;cuisine&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;caloriesPerServing&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;tags&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;string&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;userId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;image&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;rating&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;reviewCount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;mealType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;string&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;skip&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;limit&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre><h2>Beispiel ROOT is Array - (<a href="https://jsonplaceholder.typicode.com/todos/">https://jsonplaceholder.typicode.com/todos/</a>)</h2>
+<p>Um eine Kompatibilität zu erreichen wird hier ein internes &quot;_root&quot; Object hinzugefügt.</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;userId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;delectus aut autem&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;userId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;quis ut nam facilis et officia qui&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre><p>Intern verwendete Schemata</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;_root&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;userId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;number&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;boolean&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>```
+</code></pre></body>
+            </html>
