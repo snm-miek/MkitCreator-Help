@@ -43,7 +43,7 @@ export default class PageCreator {
         }
         if (path.extname(pagePath) == '.md') {
             // parse md
-            let outputFile = destinationFile.replace('.md', '.html');
+            let outputFile = destinationFile.replace('.md', '.htm');
             outputFile = outputFile.replace(/README/i, 'index');
             let html = await marked.parse(fs.readFileSync(sourceFile).toString());
             
